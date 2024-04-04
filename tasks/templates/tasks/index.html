@@ -3,14 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tasks</title>
+    <title>{% block title %} Tasks {% endblock title %}</title>
 </head>
 <body>
+{% block content %}
+    <h1>Tasks</h1>
     <ul>
         {% for task in tasks %}
-          <li>{{ task }}</li>
+        <li>{{ task }}</li>
         {% endfor %}
         
     </ul>
+    <a href="{% url 'add' %}">Add Task</a>
+{% endblock content %}
 </body>
 </html>
