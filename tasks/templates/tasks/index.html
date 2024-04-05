@@ -10,7 +10,13 @@
     <h1>Tasks</h1>
     <ul>
         {% for task in tasks %}
-        <li>{{ task.task }}</li>
+        <div>
+            <span>{{ task.task }}</span>
+            <form action="{% url 'delete' task.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Delete</button>
+            </form>
+        </div>
         {% endfor %}
         
     </ul>
